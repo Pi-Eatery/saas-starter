@@ -1,20 +1,13 @@
-# Next.js SaaS Starter
+# Permit Scout
 
-This is a starter template for building a SaaS application using **Next.js** with support for authentication, Stripe integration for payments, and a dashboard for logged-in users.
-
-**Demo: [https://next-saas-start.vercel.app/](https://next-saas-start.vercel.app/)**
+Permit Scout is a service that helps you secure hard-to-get permits for popular trails and activities. We monitor permit availability 24/7 and notify you the instant a spot opens up, so you can focus on planning your adventure.
 
 ## Features
 
-- Marketing landing page (`/`) with animated Terminal element
-- Pricing page (`/pricing`) which connects to Stripe Checkout
-- Dashboard pages with CRUD operations on users/teams
-- Basic RBAC with Owner and Member roles
-- Subscription management with Stripe Customer Portal
-- Email/password authentication with JWTs stored to cookies
-- Global middleware to protect logged-in routes
-- Local middleware to protect Server Actions or validate Zod schemas
-- Activity logging system for any user events
+- **Permit Monitoring:** We constantly monitor recreation.gov and other permit sites for availability.
+- **Instant Notifications:** Get notified by email or SMS the moment a permit becomes available.
+- **User Dashboard:** Manage your monitored permits and notification preferences from a simple dashboard.
+- **Secure Payments:** We use Stripe to handle payments securely.
 
 ## Tech Stack
 
@@ -23,11 +16,13 @@ This is a starter template for building a SaaS application using **Next.js** wit
 - **ORM**: [Drizzle](https://orm.drizzle.team/)
 - **Payments**: [Stripe](https://stripe.com/)
 - **UI Library**: [shadcn/ui](https://ui.shadcn.com/)
+- **Web Scraping**: [Puppeteer](https://pptr.dev/)
+- **Background Jobs**: [BullMQ](https://bullmq.io/)
 
 ## Getting Started
 
 ```bash
-git clone https://github.com/nextjs/saas-starter
+git clone https://github.com/Pi-Eatery/saas-starter.git
 cd saas-starter
 pnpm install
 ```
@@ -74,14 +69,6 @@ You can listen for Stripe webhooks locally through their CLI to handle subscript
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
-## Testing Payments
-
-To test Stripe payments, use the following test card details:
-
-- Card Number: `4242 4242 4242 4242`
-- Expiration: Any future date
-- CVC: Any 3-digit number
-
 ## Going to Production
 
 When you're ready to deploy your SaaS application to production, follow these steps:
@@ -107,13 +94,3 @@ In your Vercel project settings (or during deployment), add all the necessary en
 3. `STRIPE_WEBHOOK_SECRET`: Use the webhook secret from the production webhook you created in step 1.
 4. `POSTGRES_URL`: Set this to your production database URL.
 5. `AUTH_SECRET`: Set this to a random string. `openssl rand -base64 32` will generate one.
-
-## Other Templates
-
-While this template is intentionally minimal and to be used as a learning resource, there are other paid versions in the community which are more full-featured:
-
-- https://achromatic.dev
-- https://shipfa.st
-- https://makerkit.dev
-- https://zerotoshipped.com
-- https://turbostarter.dev

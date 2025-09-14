@@ -1,5 +1,9 @@
 {
+  "name": "permit-scout",
+  "version": "0.1.0",
   "private": true,
+  "author": "Pi-Eatery",
+  "description": "A service to monitor permit availability for popular trails and activities.",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
